@@ -17,12 +17,12 @@
     <ion-list lines="none">
       <ion-item>
         <ion-label position="stacked" color="primary">Enter your support message below</ion-label>
-        <ion-textarea [(ngModel)]="supportMessage" name="supportQuestion" #supportQuestion="ngModel" rows="6" required></ion-textarea>
+        <ion-textarea [(ngModel)]="supportMessage" name="message" #message="ngModel" rows="6" required></ion-textarea>
       </ion-item>
     </ion-list>
 
     <ion-text color="danger">
-      <p [hidden]="supportQuestion.valid || submitted === false" class="ion-padding-start">
+      <p [hidden]="message.valid || submitted === false" class="ion-padding-start">
         Support message is required
       </p>
     </ion-text>

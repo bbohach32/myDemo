@@ -1,4 +1,4 @@
-<!-- <ion-header>
+<ion-header>
   <ion-toolbar>
     <ion-segment [(ngModel)]="segment" (ionChange)="updateSchedule()">
       <ion-segment-button value="all">
@@ -9,7 +9,7 @@
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
-</ion-header> -->
+</ion-header> 
 
 <ion-header>
   <ion-toolbar>
@@ -17,7 +17,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
 
-    <ion-title>Sessions</ion-title>
+    <ion-title>Daily Activities</ion-title>
 
     <ion-buttons slot="end">
       <ion-button (click)="presentFilter()">
@@ -67,7 +67,7 @@
   </ion-list>
 
   <ion-list-header [hidden]="shownSessions > 0">
-    No Sessions Found
+    No Favorites Found. Click on the star at the top right of a daily activity's details to add it to your favorites.
   </ion-list-header>
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>

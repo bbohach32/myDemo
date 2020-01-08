@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { AlertController, ToastController } from '@ionic/angular';
+import { FirebaseService } from '../../providers/firebase.service';
 
 
 @Component({
@@ -9,21 +10,19 @@ import { AlertController, ToastController } from '@ionic/angular';
   templateUrl: 'support.html',
   styleUrls: ['./support.scss'],
 })
+
 export class SupportPage {
   submitted = false;
   supportMessage: string;
 
   constructor(
     public alertCtrl: AlertController,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+    private fireServ: FirebaseService
+
   ) { }
 
   async ionViewDidEnter() {
-    const toast = await this.toastCtrl.create({
-      message: 'This does not actually send a support request.',
-      duration: 3000
-    });
-    await toast.present();
   }
 
   async submit(form: NgForm) {
@@ -33,11 +32,20 @@ export class SupportPage {
       this.supportMessage = '';
       this.submitted = false;
 
-      const toast = await this.toastCtrl.create({
-        message: 'Your support request has been sent.',
-        duration: 3000
-      });
-      await toast.present();
+      this.fireServ.addSupportMessage(form.value).then(async () => {
+
+        const toast = await this.toastCtrl.create({
+          message: 'Your support request has been sent.',
+          duration: 3000
+        });
+        await toast.present();
+      }).catch(async () =>{
+        const toast = await this.toastCtrl.create({
+          message: 'Your support request could not be sent. Please try again!',
+          duration: 3000
+        });
+        await toast.present();
+      })
     }
   }
 

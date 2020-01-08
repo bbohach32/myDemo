@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item text-center>
+    <ion-title text-center>Welcome!</ion-title>
+  </ion-item>
+  <ion-item>
+    This app demonstrates some capabilities that could be used in any app idea you may have. 
+    When I design an app, this is where I get most of my code and ideas from.
+    I hope that you are able to draw inspiration from this app and can think of an incredibly useful one.
+    Go ahead and play with this app on all the devices you have so you know that you can reach everyone!
+
+    Here are some shortcuts to different parts of this app. 
+  </ion-item>
+  <ion-grid fixed>
+    <ion-row class="ion-align-items-stretch">
+      <ion-col size="8" size-md="6" *ngFor="let category of categories">
+        <ion-card class="speaker-card">
+          <ion-card-header>
+            <ion-item lines="none" routerLink="/app/tabs/home/{{category.id}}">
+              {{category.name}}
+            </ion-item>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-list>
+              <ion-item *ngFor="let detail of category.details" routerLink="/{{detail.id}}">
+                <h3>{{detail.name}}</h3>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
