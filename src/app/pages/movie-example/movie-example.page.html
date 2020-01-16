@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sorting & Filtering Example - Movies</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let movie of movies">
+    <ion-label>
+      <h3>{{movie.title}}</h3>
+      <p *ngFor="let genre of movie.genre">
+        {{genre}}
+      </p>
+    </ion-label>
+  </ion-item>
+</ion-content>
