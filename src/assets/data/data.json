@@ -437,5 +437,31 @@
       "name": "Navigation",
       "icon": "compass"
     }
+  ],
+  "movies": [
+    {
+      "title": "Avengers: End Game",
+      "genre": ["Sci-Fi", "Action"]
+    },
+    {
+      "title": "Avengers: Infinity War",
+      "genre": ["Sci-Fi", "Action"]
+    },
+    {
+      "title": "Dinner for Schmuks",
+      "genre": ["Comedy"]
+    },
+    {
+      "title": "Joker",
+      "genre": ["Drama"]
+    },
+    {
+      "title": "Inception",
+      "genre": ["Sci-Fi"]
+    },
+    {
+      "title": "Shrek",
+      "genre": ["Comedy", "Family"]
+    }
   ]
 }

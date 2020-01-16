@@ -158,4 +158,12 @@ export class ConferenceData {
       })
     );
   }
+
+  getMovies() {
+    return this.load().pipe(
+      map((data: any) => {
+        return data.movies;
+      })
+    );
+  }
 }
