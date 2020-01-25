@@ -438,6 +438,34 @@
       "icon": "compass"
     }
   ],
+
+  "genres": [
+    {
+      "name": "Sci-Fi",
+      "icon": "logo-angular"
+    },
+    {
+      "name": "Action",
+      "icon": "document"
+    },
+    {
+      "name": "Comedy",
+      "icon": "restaurant"
+    },
+    {
+      "name": "Drama",
+      "icon": "logo-ionic"
+    },
+    {
+      "name": "Family",
+      "icon": "hammer"
+    },
+    {
+      "name": "Crime",
+      "icon": "color-palette"
+    }
+  ],
+  
   "movies": [
     {
       "title": "Avengers: End Game",
@@ -462,6 +490,18 @@
     {
       "title": "Shrek",
       "genre": ["Comedy", "Family"]
+    },
+    {
+      "title": "The Godfather",
+      "genre": ["Crime", "Drama"]
+    },
+    {
+      "title": "The Godfather 2",
+      "genre": ["Crime", "Drama"]
+    },
+    {
+      "title": "The Godfather 3",
+      "genre": ["Crime", "Drama"]
     }
   ]
 }

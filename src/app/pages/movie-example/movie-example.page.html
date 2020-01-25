@@ -1,15 +1,48 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Sorting & Filtering Example - Movies</ion-title>
+      <ion-item>
+        <ion-title>Movies</ion-title>
+      </ion-item>
+      <ion-buttons slot="end">
+        <ion-button (click)="addMovie($event)">
+          <ion-icon slot="icon-only" name="more"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-item>Case Sensitive
+        <ion-toggle [(ngModel)]="caseSensitive"></ion-toggle>
+        <ion-buttons slot="end">
+          <ion-button (click)="presentFilter()">
+          <span *ngIf="ios">Filter</span>
+          <span *ngIf="!ios">
+            <ion-icon slot="icon-only" name="options"></ion-icon>
+          </span>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-searchbar
+        placeholder="Search for..."
+        (ionChange)="searchQueryChanged()"
+        [(ngModel)]="searchTerm"
+      ></ion-searchbar>
+      
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item *ngFor="let movie of movies">
+  <ion-item *ngFor="let movie of shownMovies">
     <ion-label>
-      <h3>{{movie.title}}</h3>
-      <p *ngFor="let genre of movie.genre">
-        {{genre}}
+      <h2>{{ movie.title }}</h2>
+      <p>
+        <span *ngFor="let genre of movie.genre">
+          {{ genre }}
+        </span>
       </p>
     </ion-label>
   </ion-item>

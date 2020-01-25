@@ -1,22 +1,21 @@
-import { AfterViewInit, Component } from '@angular/core';
-import { Config, ModalController, NavParams } from '@ionic/angular';
-
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ConferenceData } from '../../providers/conference-data';
-
+import { Config } from '@ionic/angular';
+import { ModalController, NavParams } from '@ionic/angular';
 
 @Component({
-  selector: 'page-schedule-filter',
-  templateUrl: 'schedule-filter.html',
-  styleUrls: ['./schedule-filter.scss'],
+  selector: 'movie-filter',
+  templateUrl: './movie-filter.component.html',
+  styleUrls: ['./movie-filter.component.scss'],
 })
-export class ScheduleFilterPage implements AfterViewInit {
+export class MovieFilterComponent implements AfterViewInit {
   ios: boolean;
 
   tracks: {name: string, icon: string, isChecked: boolean}[] = [];
 
   constructor(
     public confData: ConferenceData,
-    private config: Config,
+    public config: Config,
     public modalCtrl: ModalController,
     public navParams: NavParams,
 
@@ -29,14 +28,14 @@ export class ScheduleFilterPage implements AfterViewInit {
   // TODO use the ionViewDidEnter event
   ngAfterViewInit() {
     // passed in array of track names that should be excluded (unchecked)
-    const excludedTrackNames = this.navParams.get('excludedTracks');
+    const excludedFilters = this.navParams.get('excludedGenres');
 
-    this.confData.getTracks().subscribe((tracks: any[]) => {
+    this.confData.getGenres().subscribe((tracks: any[]) => {
       tracks.forEach(track => {
         this.tracks.push({
           name: track.name,
           icon: track.icon,
-          isChecked: (excludedTrackNames.indexOf(track.name) === -1)
+          isChecked: (excludedFilters.indexOf(track.name) === -1)
         });
       });
     });
@@ -60,4 +59,5 @@ export class ScheduleFilterPage implements AfterViewInit {
     // can "dismiss" itself and pass back data
     this.modalCtrl.dismiss(data);
   }
+
 }

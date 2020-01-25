@@ -159,6 +159,14 @@ export class ConferenceData {
     );
   }
 
+  getGenres() {
+    return this.load().pipe(
+      map((data: any) => {
+        return data.genres.sort();
+      })
+    );
+  }
+
   getMovies() {
     return this.load().pipe(
       map((data: any) => {

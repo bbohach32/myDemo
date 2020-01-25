@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Movie</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #movieForm="ngForm" novalidate>
+    <ion-item>
+      <ion-label position="stacked" color="primary">Movie Title</ion-label>
+      <ion-input [(ngModel)]="movieToAdd.title" name="title" type="text" #title="ngModel" spellcheck="false" autocapitalize="off"
+        required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked" color="primary">Movie Genres</ion-label>
+      <ion-input [(ngModel)]="movieToAdd.genre" name="genre" type="text" #genre="ngModel" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      Enter genres as a comma seperated list with no spaces
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="close()" color="light" expand="block">Cancel</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="onSubmit(movieForm)" type="submit" expand="block">Submit</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

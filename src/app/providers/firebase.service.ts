@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
 import * as firebase from 'firebase/app';
+import { MovieData } from '../pages/movie-example/movie-example.page';
 
 interface SupportMessage {
   message: string,
@@ -20,6 +21,29 @@ export class FirebaseService {
     private firebaseService: FirebaseService
   ) { 
     firebase.auth().useDeviceLanguage()
+  }
+
+  addMovie(movie: MovieData) {
+    let entry = {[movie.title]: {genres: movie.genre}}
+    this.afs.firestore.collection('movieData').doc('movies').update(entry).then(() => {
+      return true
+    }).catch(() => {
+      return false
+    })
+  }
+
+  async getMovies() {
+    return await new Promise<any>((resolve, reject) => {
+      //let user = this.fireAuth.auth.currentUser.email
+      var stored;
+      this.afs.firestore.collection('movieData').doc('movies').get().then((values) => {
+        if (stored = values.data()) {
+          console.log(values)
+          console.log(values.data())
+          resolve(stored);
+        }
+      })
+    })
   }
 
   async addSupportMessage(data: SupportMessage) {

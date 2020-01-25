@@ -47,18 +47,18 @@ export class UserData {
 
   logout(): Promise<any> {
     return this.storage.remove(this.HAS_LOGGED_IN).then(() => {
-      return this.storage.remove('username');
+      return this.storage.remove('email');
     }).then(() => {
       this.events.publish('user:logout');
     });
   }
 
   setUsername(username: string): Promise<any> {
-    return this.storage.set('username', username);
+    return this.storage.set('email', username);
   }
 
   getUsername(): Promise<string> {
-    return this.storage.get('username').then((value) => {
+    return this.storage.get('email').then((value) => {
       return value;
     });
   }

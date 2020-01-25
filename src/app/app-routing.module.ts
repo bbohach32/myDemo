@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CheckTutorial } from './providers/check-tutorial.service';
+import { MovieFilterComponent } from './pages/movie-filter/movie-filter.component';
 
 const routes: Routes = [
   {
