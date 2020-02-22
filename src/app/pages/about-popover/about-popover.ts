@@ -2,15 +2,13 @@ import { Component } from '@angular/core';
 
 import { PopoverController, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { ResumeComponent } from '../resume/resume.component'
 
 @Component({
   template: `
-    <ion-title>
-      Example 
-    </ion-title>
     <ion-list>
-      <ion-item button>
-        <ion-label>Example 1</ion-label>
+      <ion-item button (click)="resume()">
+        <ion-label>Resume</ion-label>
       </ion-item>
       <ion-item button>
         <ion-label>Example 2</ion-label>
@@ -31,6 +29,16 @@ export class PopoverPage {
     // this.app.getRootNavs()[0].push('/support');
     this.router.navigateByUrl('/support')
     this.popoverCtrl.dismiss();
+  }
+
+  async resume() {
+      const popover = await this.popoverCtrl.create({
+        component: ResumeComponent,
+        cssClass: "resume"
+      });
+      await popover.present();
+      
+    
   }
 
   close(url: string) {

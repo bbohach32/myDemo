@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
 import { UserData } from '../../providers/user-data';
 
 import { UserOptions } from '../../interfaces/user-options';
-
-
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'page-login',
@@ -19,7 +18,8 @@ export class LoginPage {
 
   constructor(
     public userData: UserData,
-    public router: Router
+    public router: Router,
+    public toastCtrl: ToastController
   ) { }
 
   onLogin(form: NgForm) {
@@ -33,5 +33,18 @@ export class LoginPage {
 
   onSignup() {
     this.router.navigateByUrl('/signup');
+  }
+
+  async forgotPassword() {
+    let message = 'No email will be sent.'
+
+    const toast = await this.toastCtrl.create({
+      message: message,
+      showCloseButton: true,
+      position: 'bottom',
+      closeButtonText: `Dismiss`,
+      duration: 5000
+    });
+    await toast.present()
   }
 }

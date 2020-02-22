@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Storage } from '@ionic/storage';
 
 import { UserData } from './providers/user-data';
+import { AngularFireModule } from 'angularfire2'
 
 @Component({
   selector: 'app-root',
@@ -66,6 +67,7 @@ export class AppComponent implements OnInit {
   async ngOnInit() {
     this.checkLoginStatus();
     this.listenForLoginEvents();
+    //AngularFireModule.ini
 
     this.swUpdate.available.subscribe(async res => {
       const toast = await this.toastCtrl.create({

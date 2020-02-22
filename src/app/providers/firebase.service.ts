@@ -3,6 +3,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
 import * as firebase from 'firebase/app';
 import { MovieData } from '../pages/movie-example/movie-example.page';
+import { isString } from 'util';
 
 interface SupportMessage {
   message: string,
@@ -24,7 +25,12 @@ export class FirebaseService {
   }
 
   addMovie(movie: MovieData) {
-    let entry = {[movie.title]: {genres: movie.genre}}
+    let entry;
+    if (isString(movie.genre)) {
+      entry = {[movie.title]: {genres: [movie.genre]}}  
+    } else {
+      entry = {[movie.title]: {genres: movie.genre}}
+    }
     this.afs.firestore.collection('movieData').doc('movies').update(entry).then(() => {
       return true
     }).catch(() => {

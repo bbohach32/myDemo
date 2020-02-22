@@ -8,9 +8,9 @@ import { ModalController, NavParams } from '@ionic/angular';
   templateUrl: './movie-filter.component.html',
   styleUrls: ['./movie-filter.component.scss'],
 })
-export class MovieFilterComponent implements AfterViewInit {
+export class MovieFilterComponent {
   ios: boolean;
-
+  allFilters: Array<string> = ['Test']
   tracks: {name: string, icon: string, isChecked: boolean}[] = [];
 
   constructor(
@@ -26,11 +26,24 @@ export class MovieFilterComponent implements AfterViewInit {
   }
 
   // TODO use the ionViewDidEnter event
-  ngAfterViewInit() {
+  ionViewDidEnter() {
     // passed in array of track names that should be excluded (unchecked)
     const excludedFilters = this.navParams.get('excludedGenres');
+    this.allFilters = this.navParams.get('allGenres');
 
-    this.confData.getGenres().subscribe((tracks: any[]) => {
+    console.log(this.allFilters)
+    if (this.allFilters != null) {
+      this.allFilters.forEach((genre) => {
+          this.tracks.push({
+            name: genre,
+            icon: 'document',
+            isChecked: (excludedFilters.indexOf(genre) === -1)
+          })
+        
+      })
+    }
+
+    /*this.confData.getGenres().subscribe((tracks: any[]) => {
       tracks.forEach(track => {
         this.tracks.push({
           name: track.name,
@@ -38,7 +51,9 @@ export class MovieFilterComponent implements AfterViewInit {
           isChecked: (excludedFilters.indexOf(track.name) === -1)
         });
       });
-    });
+    });*/
+
+
   }
 
   selectAll(check: boolean) {
@@ -46,6 +61,7 @@ export class MovieFilterComponent implements AfterViewInit {
     this.tracks.forEach(track => {
       track.isChecked = check;
     });
+    console.log(this.allFilters)
   }
 
   applyFilters() {

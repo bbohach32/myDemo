@@ -32,7 +32,7 @@ import { MovieFilterComponent } from './pages/movie-filter/movie-filter.componen
     }),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    //AngularFireModule//.initializeApp(environment.firebase)
   ],
   declarations: [AppComponent],
   providers: [InAppBrowser, SplashScreen, StatusBar, AngularFireAuth],

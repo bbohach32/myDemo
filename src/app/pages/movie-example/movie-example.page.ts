@@ -24,6 +24,7 @@ export class MovieExamplePage implements OnInit {
   searchTerm: string;
   caseSensitive: boolean = false;
   ios: boolean;
+  genres = Array<string>()
 
   constructor(
     public confData: ConferenceData,
@@ -36,33 +37,62 @@ export class MovieExamplePage implements OnInit {
   ngOnInit() {
     this.ios = this.config.get('mode') === `ios`;
 
-    this.confData.getMovies().subscribe((movieData: any) => {
+    this.confData.getMovies().subscribe((movieData: MovieData[]) => {
       this.movies = movieData
     })
 
     this.fireServ.getMovies().then((fireMovies: any) => {
-      console.log(fireMovies)
+      //console.log(fireMovies)
       let movieKeys = Object.keys(fireMovies)
       movieKeys.forEach((key) => {
-        console.log(key)
+        //console.log(key)
         let newMovie: MovieData = {title: key, genre: fireMovies[key].genres}
-        console.log(newMovie)
+        //console.log(newMovie)
         if (!this.movies.find(movie => movie.title === newMovie.title)) {
-          //this.movies.
           this.movies.push({title: key, genre: fireMovies[key].genres})
         }
+        /*newMovie.genre.forEach((genreA) => {
+          if (!this.genres.find(genreB => genreB === genreA)) {
+            this.genres.push(genreA)
+          }
+          console.log("Genre", genreA)
+        })*/
       })
       this.movies.sort((a,b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
+      this.movies.forEach((movie) => {
+        movie.genre.forEach((genreA) => {
+          //if (this.genres != null) {
+            if (!this.genres.find(genreB => genreB === genreA)) {
+              this.genres.push(genreA)
+            }
+          //} 
+        })
+        console.log("Genres", this.genres)
+      })
     })
 
     console.log("Movies after init")
-    console.log(this.movies)
+    //console.log(this.movies)
   }
 
   ionViewWillEnter() {
     console.log("Movies will enter")
     console.log(this.movies)
+
     this.shownMovies = this.movies
+  }
+
+  ionViewDidEnter() {
+    this.movies.forEach((movie) => {
+      movie.genre.forEach((genreA) => {
+        //if (this.genres != null) {
+          if (!this.genres.find(genreB => genreB === genreA)) {
+            this.genres.push(genreA)
+          }
+        //} 
+      })
+      console.log("Genres", this.genres)
+    })
   }
 
   async addMovie(event: Event) {
@@ -105,9 +135,13 @@ export class MovieExamplePage implements OnInit {
   }
 
   async presentFilter() {
+    console.log("Genres", this.genres)
     const modal = await this.modalCtrl.create({
       component: MovieFilterComponent,
-      componentProps: { excludedGenres: this.excludeGenres }
+      componentProps: { 
+        excludedGenres: this.excludeGenres,
+        allGenres: this.genres  
+      }
     });
     await modal.present();
 

@@ -40,8 +40,8 @@
     <ion-label>
       <h2>{{ movie.title }}</h2>
       <p>
-        <span *ngFor="let genre of movie.genre">
-          {{ genre }}
+        <span>
+          {{ movie.genre.toString() }}
         </span>
       </p>
     </ion-label>
