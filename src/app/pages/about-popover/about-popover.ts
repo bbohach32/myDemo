@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { PopoverController, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ResumeComponent } from '../resume/resume.component'
+import { TranscriptComponent } from '../transcript/transcript.component';
 
 @Component({
   template: `
@@ -10,8 +11,8 @@ import { ResumeComponent } from '../resume/resume.component'
       <ion-item button (click)="resume()">
         <ion-label>Resume</ion-label>
       </ion-item>
-      <ion-item button>
-        <ion-label>Example 2</ion-label>
+      <ion-item button (click)="transcript()">
+        <ion-label>Transcript</ion-label>
       </ion-item>
       <ion-item button (click)="support()">
         <ion-label>Support</ion-label>
@@ -37,8 +38,14 @@ export class PopoverPage {
         cssClass: "resume"
       });
       await popover.present();
-      
-    
+  }
+
+  async transcript() {
+    const popover = await this.popoverCtrl.create({
+      component: TranscriptComponent,
+      cssClass: "resume"
+    });
+    await popover.present();
   }
 
   close(url: string) {

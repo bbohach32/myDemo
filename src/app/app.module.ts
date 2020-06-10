@@ -14,9 +14,8 @@ import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth'
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireModule } from 'angularfire2';
-import { MovieFilterComponent } from './pages/movie-filter/movie-filter.component';
+import { AngularFirestoreModule, AngularFirestore, FirestoreSettingsToken } from 'angularfire2/firestore';
+import { AngularFireModule, FirebaseOptionsToken } from 'angularfire2';
 
 
 @NgModule({
@@ -30,12 +29,14 @@ import { MovieFilterComponent } from './pages/movie-filter/movie-filter.componen
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
     }),
+    //AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    //AngularFireModule//.initializeApp(environment.firebase)
   ],
   declarations: [AppComponent],
-  providers: [InAppBrowser, SplashScreen, StatusBar, AngularFireAuth],
+  providers: [InAppBrowser, SplashScreen, StatusBar, AngularFireAuth,
+    { provide: FirebaseOptionsToken, useValue: environment.firebase },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

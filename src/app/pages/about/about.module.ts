@@ -7,6 +7,7 @@ import { AboutPage } from './about';
 import { PopoverPage } from '../about-popover/about-popover';
 import { AboutPageRoutingModule } from './about-routing.module';
 import { ResumeComponent } from '../resume/resume.component';
+import { TranscriptComponent } from '../transcript/transcript.component';
 
 @NgModule({
   imports: [
@@ -15,8 +16,8 @@ import { ResumeComponent } from '../resume/resume.component';
     IonicModule,
     AboutPageRoutingModule
   ],
-  declarations: [AboutPage, PopoverPage, ResumeComponent],
-  entryComponents: [PopoverPage, ResumeComponent],
+  declarations: [AboutPage, PopoverPage, ResumeComponent, TranscriptComponent],
+  entryComponents: [PopoverPage, ResumeComponent, TranscriptComponent],
   bootstrap: [AboutPage],
 })
 export class AboutModule {}

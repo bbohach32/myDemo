@@ -19,48 +19,28 @@ export class HomePage implements OnInit {
       "details": [
         {"name": "Profile Creation & Customization", "id": "account", "id2": "login"},
         {"name": "User Related Data & Content (Not yet available)", "id": "app/tabs/about"}
-      ],
-      "about": "Burt is a Bear.",
-      "location": "Everywhere",
-      "email": "burt@example.com",
-      "phone": "+1-541-754-3010",
-      "id": "1"
+      ]
     },
     {
       "name": "Filtering & Sorting",
       "details": [
         {"name": "List of Movies", "id": "movie-example"},
         {"name": "A Daily Schedule", "id": "app/tabs/schedule"}
-      ],
-      "about": "Burt is a Bear.",
-      "location": "Everywhere",
-      "email": "burt@example.com",
-      "phone": "+1-541-754-3010",
-      "id": "2"
+      ]
     },
     {
       "name": "Location",
       "details": [
         {"name": "Map of Locations", "id": "app/tabs/map"},
-        {"name": "Current Location (Not yet available)", "id": "app/tabs/about"}
-      ],
-      "about": "Burt is a Bear.",
-      "location": "Everywhere",
-      "email": "burt@example.com",
-      "phone": "+1-541-754-3010",
-      "id": "3"
+        {"name": "Charts & Graphs", "id": "app/tabs/charts"}
+      ]
     },
     {
       "name": "Directory",
       "details": [
         {"name": "Contact List", "id": "app/tabs/speakers"},
         {"name": "Team Members (Not yet available)", "id": "app/tabs/about"}
-      ],
-      "about": "Burt is a Bear.",
-      "location": "Everywhere",
-      "email": "burt@example.com",
-      "phone": "+1-541-754-3010",
-      "id": "3"
+      ]
     }
   ]
 
@@ -98,19 +78,21 @@ export class HomePage implements OnInit {
   specialEffects() {
     if (!this.displayEffects) {
       this.displayEffects = true
+      let x = window.screen.width
+      console.log(x)
       anime({
         targets: '.animate-me2',
-        translateX: -443,
-        rotate: '-1turn',
-        backgroundColor: '#FFF',
+        translateX: -x/3,
+        rotate: '-2turn',
+        backgroundColor: '#ff0000',
         duration: 5000,
         loop: true
       });
       anime({
         targets: '.animate-me',
-        translateX: 443,
-        rotate: '1turn',
-        backgroundColor: '#FFF',
+        translateX: x/3,
+        rotate: '2turn',
+        backgroundColor: '#ff0000',
         duration: 5000,
         loop: true
       })

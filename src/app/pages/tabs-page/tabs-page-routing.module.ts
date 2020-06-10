@@ -67,6 +67,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'charts',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../charts-and-graphs/charts-and-graphs.module').then(m => m.ChartsAndGraphsPageModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/app/tabs/home',
         pathMatch: 'full'

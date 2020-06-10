@@ -16,7 +16,7 @@ import { AddMovieComponent } from '../add-movie/add-movie.component';
     CommonModule,
     FormsModule,
     IonicModule,
-    MovieExamplePageRoutingModule
+    MovieExamplePageRoutingModule,
   ],
   declarations: [MovieExamplePage, MovieFilterComponent, MoviePageOptionsComponent, AddMovieComponent],
   entryComponents: [MovieFilterComponent, MoviePageOptionsComponent, AddMovieComponent]

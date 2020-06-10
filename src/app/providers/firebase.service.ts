@@ -54,7 +54,8 @@ export class FirebaseService {
 
   async addSupportMessage(data: SupportMessage) {
     //data.user = this.fireAuth.auth.currentUser.email
-    this.afs.firestore.collection('supports').add(data).then(() => {
+    let date = new Date()
+    this.afs.firestore.collection('supports').doc(date.toString()).set(data).then(() => {
       return true;
     })
     return false;

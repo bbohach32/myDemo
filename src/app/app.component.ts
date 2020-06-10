@@ -11,6 +11,7 @@ import { Storage } from '@ionic/storage';
 
 import { UserData } from './providers/user-data';
 import { AngularFireModule } from 'angularfire2'
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -62,6 +63,7 @@ export class AppComponent implements OnInit {
     private toastCtrl: ToastController,
   ) {
     this.initializeApp();
+    AngularFireModule.initializeApp(environment.firebase)
   }
 
   async ngOnInit() {

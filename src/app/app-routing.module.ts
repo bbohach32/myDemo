@@ -41,6 +41,10 @@ const routes: Routes = [
   {
     path: 'movie-example',
     loadChildren: () => import('./pages/movie-example/movie-example.module').then( m => m.MovieExamplePageModule)
+  },
+  {
+    path: 'charts-and-graphs',
+    loadChildren: () => import('./pages/charts-and-graphs/charts-and-graphs.module').then( m => m.ChartsAndGraphsPageModule)
   }
 ];
 
