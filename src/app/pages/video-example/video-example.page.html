@@ -1,0 +1,13 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title>video-example</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <iframe style="width: 100%; height: 500px;" [src]='ytPlaylist.url' allowfullscreen></iframe>
+
+  <div *ngFor="let video of videoList">
+    <iframe style="width: 100%; height: 500px;" [src]='video.url' allowfullscreen></iframe>
+  </div>
+</ion-content>

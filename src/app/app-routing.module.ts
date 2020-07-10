@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CheckTutorial } from './providers/check-tutorial.service';
-import { MovieFilterComponent } from './pages/movie-filter/movie-filter.component';
 
 const routes: Routes = [
   {
@@ -45,6 +44,10 @@ const routes: Routes = [
   {
     path: 'charts-and-graphs',
     loadChildren: () => import('./pages/charts-and-graphs/charts-and-graphs.module').then( m => m.ChartsAndGraphsPageModule)
+  },
+  {
+    path: 'video-example',
+    loadChildren: () => import('./pages/video-example/video-example.module').then( m => m.VideoExamplePageModule)
   }
 ];
 

@@ -41,7 +41,13 @@ export class HomePage implements OnInit {
         {"name": "Contact List", "id": "app/tabs/speakers"},
         {"name": "Team Members (Not yet available)", "id": "app/tabs/about"}
       ]
-    }
+    },
+    {
+      "name": "Videos",
+      "details": [
+        {"name": "Demo Concert", "id": "video-example"}
+      ]
+  }
   ]
 
   loggedIn = false;
