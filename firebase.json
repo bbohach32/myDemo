@@ -2,7 +2,7 @@
   "hosting": [
     {
       "public": "www",
-      "site": "cheeksdemo",
+      "site": "germinate",
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -17,7 +17,7 @@
     },
     {
       "public": "www",
-      "site": "cheekscomputerservices",
+      "site": "cheeksdemo",
       "ignore": [
         "firebase.json",
         "**/.*",
