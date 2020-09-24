@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserData } from '../../providers/user-data';
-import anime from 'animejs/lib/anime.es.js';
-
-//const anime = require('animejs');
+import * as anime from 'animejs/lib/anime'
 
 @Component({
   selector: 'home',
@@ -14,6 +12,13 @@ import anime from 'animejs/lib/anime.es.js';
 export class HomePage implements OnInit {
   
   categories = [
+    {
+      "name": "Games",
+      "details": [
+        {"name": "Minesweeper", "id": "app/tabs/minesweeper"},
+        {"name": "Germinate (Not yet available)", "id": "app/tabs/about"}
+      ]
+    },
     {
       "name": "Users",
       "details": [
@@ -53,6 +58,9 @@ export class HomePage implements OnInit {
   loggedIn = false;
   displayEffects = false;
 
+  firstShape;
+  secondShape;
+  
   constructor(
     public router: Router,
     private userData: UserData,
@@ -83,10 +91,11 @@ export class HomePage implements OnInit {
 
   specialEffects() {
     if (!this.displayEffects) {
-      this.displayEffects = true
       let x = window.screen.width
       console.log(x)
-      anime({
+      this.displayEffects = true
+    
+      this.firstShape = anime({
         targets: '.animate-me2',
         translateX: -x/3,
         rotate: '-2turn',
@@ -94,7 +103,7 @@ export class HomePage implements OnInit {
         duration: 5000,
         loop: true
       });
-      anime({
+      this.secondShape = anime({
         targets: '.animate-me',
         translateX: x/3,
         rotate: '2turn',
@@ -102,6 +111,12 @@ export class HomePage implements OnInit {
         duration: 5000,
         loop: true
       })
+    } else {
+      this.displayEffects = false
+      //this.firstShape.remove(this.firstShape)
+      //this.secondShape.remove(this.secondShape)
     }
+      
+    
   }
 }

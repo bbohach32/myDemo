@@ -27,6 +27,11 @@ export class AppComponent implements OnInit {
       icon: 'home'
     },
     {
+      title: 'Minesweeper',
+      url: '/app/tabs/minesweeper',
+      icon: 'logo-game-controller-a'
+    },
+    {
       title: 'Schedule',
       url: '/app/tabs/schedule',
       icon: 'calendar'
@@ -35,11 +40,6 @@ export class AppComponent implements OnInit {
       title: 'Speakers',
       url: '/app/tabs/speakers',
       icon: 'contacts'
-    },
-    {
-      title: 'Map',
-      url: '/app/tabs/map',
-      icon: 'map'
     },
     {
       title: 'About',

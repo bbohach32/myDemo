@@ -76,6 +76,10 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'minesweeper',
+        loadChildren: () => import('../minesweeper/minesweeper.module').then( m => m.MinesweeperPageModule)
+      },
+      {
         path: '',
         redirectTo: '/app/tabs/home',
         pathMatch: 'full'
