@@ -1,13 +1,13 @@
 {
-  "name": "Ionic Conference",
-  "short_name": "Ionic Conference",
+  "name": "Germinate's Web App",
+  "short_name": "Germinate's Web App",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [
     {
-      "src": "assets/img/appicon.png",
+      "src": "assets/img/germinate.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/jpeg"
     }
   ],
   "background_color": "#387ef5",

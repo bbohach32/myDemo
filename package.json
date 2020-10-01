@@ -1,8 +1,8 @@
 {
-  "name": "ionic-conference-app",
+  "name": "germinate-web-app",
   "version": "0.0.0",
-  "description": "Ionic Conference App",
-  "author": "Ionic Team <hi@ionicframework.com>",
+  "description": "Germinate Web App",
+  "author": "Germinate <bbohach@outlook.com>",
   "license": "Apache-2.0",
   "scripts": {
     "ng": "ng",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/ionic-conference-app.git"
+    "url": "https://github.com/bbohach32/germinate.git"
   },
   "private": true,
   "dependencies": {

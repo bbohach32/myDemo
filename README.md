@@ -1,3 +1,5 @@
+Germinate takes very little credit for this application. It is built on top of the Ionic Angular Conference Application but we are continuing to add on. 
+
 # Ionic Angular Conference Application
 
 This application is purely a kitchen-sink demo of the Ionic Framework and Angular.
